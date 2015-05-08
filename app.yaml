@@ -4,5 +4,26 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /css
+  static_dir: css
+  
+- url: /font-awesome
+  static_dir: font-awesome
+
+- url: /fonts
+  static_dir: fonts
+
+- url: /img
+  static_dir: img
+
+- url: /js
+  static_dir: js
+
 - url: /.*
   script: swancraft.app
+  
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
