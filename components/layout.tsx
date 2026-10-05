@@ -1,4 +1,3 @@
-import { nodeName } from "jquery";
 import Head from 'next/head';
 
 interface LayoutProps {
