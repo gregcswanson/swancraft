@@ -261,7 +261,7 @@ export const articles = [
         slug: "catalina-door-repair",
         image: "/images/catalina/gallery/web_12.jpg",
         show: true,
-        description: "Watch this space for detailed updates as the restoration contiues with Swancraft assistance of this community project.",
+        description: "Swancraft is assisting with the restoration of this community PBY Catalina project. More details will be added as the work progresses.",
         gallery: [
             {
                 "name": "01.jpg",

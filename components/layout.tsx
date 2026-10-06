@@ -1,38 +1,39 @@
-import Head from 'next/head';
+import Image from 'next/image'
+import Link from 'next/link'
+import styles from '../styles/Home.module.css'
 
 interface LayoutProps {
-  children: React.ReactNode;
-  company: any;
+  children: React.ReactNode
+  company: {
+    name: string
+    phone: string
+  }
 }
 
 export default function Layout({ children, company }: LayoutProps) {
-  return <>
-    <Head>
-      <link rel="shortcut icon" href="/images/favicon_swancraft.ico" />
-    </Head>
-    <div>
-
-      <header className="site-header sticky-top py-1 d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
-        <a href="/" className="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none d-lg-inline-block d-none">
-          <img src="/images/logo_transparent.png" style={{marginLeft: '20px', marginRight: '20px', height: '40px' }} />
-        </a>
-
-        <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" className="nav-link px-2 link-secondary d-none d-lg-block">Home</a></li>
-          <li><a href="#services" className="nav-link px-2 link-dark d-none d-lg-block">Services</a></li>
-          <li><a href="#recent" className="nav-link px-2 link-dark d-none d-lg-block">Recent Work</a></li>
-          <li><a href="#gallery" className="nav-link px-2 link-dark d-none d-lg-block">Gallery</a></li>
-          <li><a href="#contact" className="nav-link px-2 link-dark d-none d-lg-block">Contact Us</a></li>
-        </ul>
-
-        <div className="col-md-3 text-end">
-          
+  return (
+    <>
+      <a className={styles.skipLink} href="#main-content">Skip to content</a>
+      <header className={styles.header} id="top">
+        <div className={styles.headerInner}>
+          <Link href="/" className={styles.brand} aria-label={`${company.name} home`}>
+            <Image src="/images/logo_transparent.png" alt="Swancraft" width={188} height={78} unoptimized priority />
+          </Link>
+          <nav className={styles.navigation} aria-label="Main navigation">
+            <Link href="/#services">Services</Link>
+            <Link href="/#work">Our work</Link>
+            <Link href="/#gallery">Gallery</Link>
+            <Link href="/#contact">Contact</Link>
+          </nav>
+          <a className={styles.headerCall} href={`tel:${company.phone}`}>
+            <span>Call the workshop</span>
+            <b>{company.phone}</b>
+          </a>
         </div>
       </header>
-
       {children}
-    </div>
-  </>
+    </>
+  )
 }
 
 /*
